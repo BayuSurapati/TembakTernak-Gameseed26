@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
     public TurnPhase currentPhase = TurnPhase.Player1;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -22,22 +22,23 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SwitchTurn()
     {
-        if(currentPhase == TurnPhase.Player1)
+        if (currentPhase == TurnPhase.Player1)
         {
             currentPhase = TurnPhase.Player2;
             Debug.Log("Giliran Player 2");
-        }else if(currentPhase == TurnPhase.Player2)
+        }
+        else if (currentPhase == TurnPhase.Player2)
         {
             currentPhase = TurnPhase.Player1;
             Debug.Log("Giliran Player 1");

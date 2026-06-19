@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: 78eb3c305f8b86e4caeb79dc59af218e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 192
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15520238074b08941a878b2ae8796882
+      internalID: 896976006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 560
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0c38a4eca9a1c4c964dab26ea3f85a
+      internalID: -896914790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 560
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d12f7a72c988a24cb4ee2fa1c2aa5d0
+      internalID: 1582487179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 560
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddc6d6080254264f90b72166ce838dd
+      internalID: -1107537219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 560
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1767cc02e4741084aa181a5fdae31854
+      internalID: 1543972852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db188e64a4a29c343bdccc6437f9118a
+      internalID: -649861049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_6
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 420
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f946399810c8ea144b660df6772bc90e
+      internalID: 1487832113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_7
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 420
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4c7c319e767034eba34fe6dc86d471
+      internalID: 728281080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 420
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100bb6ed661c1e54498b9f4d85243852
+      internalID: 1277680487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_9
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 420
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eaf14edc4656ec459759bc56c3f5922
+      internalID: -324356322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a37d180dedbd84491aa22f2e996290
+      internalID: 2117858505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_11
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 280
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b6e66dbddda3b4daec920de9af60bb
+      internalID: 1070123503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_12
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 280
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e6813fd3a0a27439bd249f8eacb30e
+      internalID: 661417260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_13
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 280
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bc7f188dfd04746849189df61a2b2d
+      internalID: 1371427893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 280
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dbb340866ad9974a9db00d1db5f8d8e
+      internalID: -2066918477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a6450df9ecdd94389e892c5f2f96a7
+      internalID: 2124947997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_16
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1236834c5e97dea4193a88d70802fab4
+      internalID: 1995924581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_17
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6afa4dff0ad7bf4791ece3e82b13002
+      internalID: 1405867271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_18
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d1194040fa1124e9bbe7f861527db9
+      internalID: -1674503095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_19
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64300d7e9e572a4b8e1728e63bd4c80
+      internalID: -739253967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42643bb460e52024b80c9a1d83ccbe01
+      internalID: 451775253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_21
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08baaac0305dd94387a115602e5b316
+      internalID: -1689851568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_22
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63662e2785a7af74eb426dfe486b767b
+      internalID: -1496791724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_23
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75682bb3d3895684a841291a5dd28e1a
+      internalID: -1787284335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_24
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67907cc54b3109b419199aae2bf0e480
+      internalID: 896700421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_0: 896976006
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_1: -896914790
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_10: 2117858505
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_11: 1070123503
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_12: 661417260
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_13: 1371427893
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_14: -2066918477
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_15: 2124947997
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_16: 1995924581
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_17: 1405867271
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_18: -1674503095
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_19: -739253967
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_2: 1582487179
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_20: 451775253
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_21: -1689851568
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_22: -1496791724
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_23: -1787284335
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_24: 896700421
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_3: -1107537219
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_4: 1543972852
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_5: -649861049
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_6: 1487832113
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_7: 728281080
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_8: 1277680487
+      set-of-animal-faces-face-emojis-stickers-emoticons-cartoon-funny-mascot-characters-face-set-generative-ai-illustration-photo_9: -324356322
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

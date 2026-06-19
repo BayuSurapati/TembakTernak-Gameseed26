@@ -94,6 +94,7 @@ public class GamepadSlingshot : MonoBehaviour
         float shootDistance = Vector2.Distance(startPoint, releasePoint);
 
         animalRB.AddForce(shootDirection * shootDistance * powerMultiplier, ForceMode2D.Impulse);
+        GetComponent<AirComboManager>().StartQTE();
         TurnManager.instance.SetAirbornePhase();
     }
 }
