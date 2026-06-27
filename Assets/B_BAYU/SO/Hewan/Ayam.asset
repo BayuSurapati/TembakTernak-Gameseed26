@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b572d912dcd8ec49a432d9f4f342284, type: 3}
+  m_Name: Ayam
+  m_EditorClassIdentifier: 
+  animalName: Ayam
+  animalPrefab: {fileID: 1887475904369390926, guid: 24ae83023cc1be7449f4a4d526c6bcc0, type: 3}
+  defaultSprite: {fileID: 896976006, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  comboPoses:
+  - {fileID: 896976006, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: -2066918477, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: 896700421, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: -1496791724, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  comboLength: 4
+  baseDamage: 10
+  weight: 1

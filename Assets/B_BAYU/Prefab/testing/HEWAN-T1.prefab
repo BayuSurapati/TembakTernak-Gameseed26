@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1582487179, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -245,14 +245,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qteDuration: 5
   slowMotionScale: 0.2
-  comboSequence: 00000000010000000200000003000000
+  comboLength: 5
   qteCanvas: {fileID: 6142665426833249377}
   uiContainer: {fileID: 3427873070733878450}
   iconPrefab: {fileID: 7264365873301768808, guid: a9d78d05086f64d4390710e9dd0299ce, type: 3}
-  animalSpriteRenderer: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  comboPoses: []
-  zoomCamera: {fileID: 0}
+  animalSpriteRenderer: {fileID: 8720486582933086131}
+  defaultSprite: {fileID: 1582487179, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  comboPoses:
+  - {fileID: 728281080, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: 1487832113, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: -649861049, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: 1543972852, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: 661417260, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  zoomCamera: {fileID: 7375175614107241737}
   spriteA: {fileID: -145980255, guid: 36deeae4fb212624fbaa93e6b33e629e, type: 3}
   spriteB: {fileID: -1404825131, guid: 36deeae4fb212624fbaa93e6b33e629e, type: 3}
   spriteX: {fileID: 2052248162, guid: 36deeae4fb212624fbaa93e6b33e629e, type: 3}
@@ -370,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8350606214730296814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -380,15 +385,15 @@ RectTransform:
   m_GameObject: {fileID: 6947551688794872262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.06, y: 0.02, z: 0.02}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3427873070733878450}
   m_Father: {fileID: 3749372293670310865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6142665426833249377

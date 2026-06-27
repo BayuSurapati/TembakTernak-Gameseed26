@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 public class AirComboManager : MonoBehaviour
 {
 
+    [HideInInspector]
+    public AnimalData myAnimalData;
+
     [Header("Pengaturan Waktu dan Efek")]
     public float qteDuration = 5f;
     public float slowMotionScale = 0.2f;
@@ -14,7 +17,8 @@ public class AirComboManager : MonoBehaviour
     public enum ComboButton { A, B, X, Y }
 
     [Header("UrutanCombo")]
-    public ComboButton[] comboSequence;
+    //public int comboLength = 4;
+    private ComboButton[] comboSequence;
 
     [Header("Pengaturan UI Combo")]
     public Canvas qteCanvas;
@@ -23,15 +27,14 @@ public class AirComboManager : MonoBehaviour
 
     [Header("Pengaturan Animasi Gaya Hewan")]
     public SpriteRenderer animalSpriteRenderer; // Komponen visual hewan
-    public Sprite defaultSprite;                // Gambar normal hewan saat ditarik/terbang biasa
-    public Sprite[] comboPoses;                 // Daftar gambar pose lucu yang berurutan
+    //public Sprite defaultSprite;                // Gambar normal hewan saat ditarik/terbang biasa
+    //public Sprite[] comboPoses;                 // Daftar gambar pose lucu yang berurutan
 
     [Header("Pengaturan Kamera")]
     public GameObject zoomCamera; // Objek Cinemachine Virtual Camera untuk Zoom
 
     [Header("Sprite Ikon Tombol Gamepad")]
     public Sprite spriteA, spriteB, spriteX, spriteY;
-
 
     private int currentComboIndex = 0;
     private int maxComboScore;
@@ -76,25 +79,33 @@ public class AirComboManager : MonoBehaviour
         timer = qteDuration;
         currentComboIndex = 0;
 
+        if (zoomCamera != null)
+        {
+            zoomCamera.SetActive(true);
+        }
+
+
+        int comboLength = myAnimalData.comboLength;
+        comboSequence = new ComboButton[comboLength];
+        for (int i = 0; i < comboLength; i++)
+        {
+            comboSequence[i] = (ComboButton)Random.Range(0, 4);
+        }
+
         maxComboScore = comboSequence.Length;
         currentScore = maxComboScore;
 
         Time.timeScale = slowMotionScale;
         Time.fixedDeltaTime = 0.02f * slowMotionScale;
 
+        if (animalSpriteRenderer != null && myAnimalData.defaultSprite != null)
+        {
+            animalSpriteRenderer.sprite = myAnimalData.defaultSprite;
+        }
+
         qteCanvas.gameObject.SetActive(true);
         GenerateUI();
         UpdateUIHighlight();
-
-        if (animalSpriteRenderer != null && defaultSprite != null)
-        {
-            animalSpriteRenderer.sprite = defaultSprite;
-        }
-
-        if (zoomCamera != null)
-        {
-            zoomCamera.SetActive(true);
-        }
 
         Debug.Log("QTE Dimulai!");
     }
@@ -123,11 +134,11 @@ public class AirComboManager : MonoBehaviour
             // Ubah warna ikon yang berhasil menjadi Hijau
             spawnedIcons[currentComboIndex].color = new Color(0.3f, 1f, 0.3f, 0.8f);
 
-            if(animalSpriteRenderer != null && currentComboIndex < comboPoses.Length)
+            if(animalSpriteRenderer != null && currentComboIndex < myAnimalData.comboPoses.Length)
             {
-                if (comboPoses[currentComboIndex] != null)
+                if (myAnimalData.comboPoses[currentComboIndex] != null)
                 {
-                    animalSpriteRenderer.sprite = comboPoses[currentComboIndex];
+                    animalSpriteRenderer.sprite = myAnimalData.comboPoses[currentComboIndex];
                 }
             }
         }
@@ -148,6 +159,10 @@ public class AirComboManager : MonoBehaviour
 
     private void EndQTE()
     {
+        if (!isQteActive)
+        {
+            return;
+        }
         isQteActive = false;
 
         Time.timeScale = 1f;
@@ -159,6 +174,14 @@ public class AirComboManager : MonoBehaviour
         {
             zoomCamera.SetActive(false);
         }
+        if(qteCanvas != null)
+        {
+            qteCanvas.gameObject.SetActive(false);
+        }
+
+        Debug.Log("QTE Selesai, Skor: " + currentScore);
+
+        TurnManager.instance.FinishActionAndSwitchTurn();
     }
 
 

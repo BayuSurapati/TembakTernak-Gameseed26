@@ -6,8 +6,23 @@ public class TurnManager : MonoBehaviour
 {
     public static TurnManager instance;
 
-    public enum TurnPhase { Player1, Player2, Airborne }
+    
+    public enum TurnPhase { Player1, Player2, Airborne, Transition }
+
+    [Header("Status Pemain saat ini")]
     public TurnPhase currentPhase = TurnPhase.Player1;
+    private TurnPhase nextPlayerPhase = TurnPhase.Player2;
+
+    [Header("Pengaturan Transisi")]
+    public float delayBetweenTurns = 3f;
+
+    public AnimalData[] player1AnimalPool;
+    public AnimalData[] player2AnimalPool;
+    public Transform slingshotP1;
+    public Transform slingshotP2;
+
+    private GameObject currentActiveAnimal;
+
     private void Awake()
     {
         if (instance == null)
@@ -22,7 +37,7 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        SpawnAnimalForCurrentTurn();
     }
 
     // Update is called once per frame
@@ -31,7 +46,7 @@ public class TurnManager : MonoBehaviour
 
     }
 
-    public void SwitchTurn()
+    /*public void SwitchTurn()
     {
         if (currentPhase == TurnPhase.Player1)
         {
@@ -43,11 +58,63 @@ public class TurnManager : MonoBehaviour
             currentPhase = TurnPhase.Player1;
             Debug.Log("Giliran Player 1");
         }
-    }
+    }*/
 
     public void SetAirbornePhase()
     {
+        nextPlayerPhase = (currentPhase == TurnPhase.Player1) ? TurnPhase.Player2 : TurnPhase.Player1;
+
         currentPhase = TurnPhase.Airborne;
         Debug.Log("Proyektil Melayang! Kunci kontrol ketapel.");
+    }
+
+    public void FinishActionAndSwitchTurn()
+    {
+        if(currentPhase == TurnPhase.Transition)
+        {
+            return;
+        }
+        StartCoroutine(TransitionRoutine());
+    }
+
+    IEnumerator TransitionRoutine()
+    {
+        currentPhase = TurnPhase.Transition;
+        Debug.Log("Fase Transisi: Menunggu " + delayBetweenTurns + " detik untuk melihat kerusakan...");
+
+        yield return new WaitForSeconds(delayBetweenTurns);
+
+        Destroy(currentActiveAnimal);
+        currentPhase = nextPlayerPhase;
+        Debug.Log("Giliran baru dimulai! Sekarang giliran: " + currentPhase.ToString());
+
+        SpawnAnimalForCurrentTurn();
+    }
+
+    private void SpawnAnimalForCurrentTurn()
+    {
+        AnimalData[] currentPool = (currentPhase == TurnPhase.Player1) ? player1AnimalPool : player2AnimalPool;
+        Transform currentSlingshot  = (currentPhase == TurnPhase.Player1) ? slingshotP1 : slingshotP2;
+
+        if(currentPool == null || currentPool.Length == 0)
+        {
+            Debug.LogError("Kumpulan Hewan Belum diisi di Inspector");
+            return;
+        }
+
+        int randomIndex = Random.Range(0, currentPool.Length);
+        AnimalData selectedData = currentPool[randomIndex];
+
+        currentActiveAnimal = Instantiate(selectedData.animalPrefab, currentSlingshot.position, Quaternion.identity);
+
+        if(currentActiveAnimal.GetComponent<GamepadSlingshot>() != null)
+        {
+            currentActiveAnimal.GetComponent<GamepadSlingshot>().slingshotCenter = currentSlingshot;
+        }
+        if(currentActiveAnimal.GetComponent<AirComboManager>() != null)
+        {
+            currentActiveAnimal.GetComponent<AirComboManager>().myAnimalData = selectedData;
+        }
+        Debug.Log("Hewan terpilih untuk giliran ini: " + selectedData.animalName);
     }
 }
