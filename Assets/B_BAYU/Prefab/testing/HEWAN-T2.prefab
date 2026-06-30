@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalRB: {fileID: 164598607537704417}
   slingshotCenter: {fileID: 0}
-  powerMultiplier: 10
+  powerMultiplier: 15
   maxDragDistance: 1
   ownerPhase: 1
 --- !u!114 &7045485565329692683

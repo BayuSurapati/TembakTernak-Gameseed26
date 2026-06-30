@@ -239,6 +239,19 @@ public class AirComboManager : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        TowerHealth targetTower = collision.gameObject.GetComponent<TowerHealth>();
+
+        if (targetTower != null)
+        {
+            float comboMultiplier = 1f + (currentScore * 0.5f);
+            float finalDamage = myAnimalData.baseDamage + comboMultiplier;
+
+            Debug.Log("BAM! " + myAnimalData.animalName + " menabrak Tower!");
+            Debug.Log("Base Damage: " + myAnimalData.baseDamage + " | Multiplier: x" + comboMultiplier + " | Final Damage: " + finalDamage);
+
+            targetTower.TakeDamage(finalDamage);
+        }
+
         // Jika hewan menabrak objek apa pun (tanah, tower, hewan lain) saat QTE masih berjalan
         if (isQteActive)
         {

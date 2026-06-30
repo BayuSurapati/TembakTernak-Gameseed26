@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalRB: {fileID: 7144774530814617274}
   slingshotCenter: {fileID: 0}
-  powerMultiplier: 10
+  powerMultiplier: 15
   maxDragDistance: 1
   ownerPhase: 0
 --- !u!114 &3555970241843234113
@@ -243,20 +243,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28855ab13f5da9a4fb29094c80e0dd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimalData: {fileID: 0}
   qteDuration: 5
   slowMotionScale: 0.2
-  comboLength: 5
   qteCanvas: {fileID: 6142665426833249377}
   uiContainer: {fileID: 3427873070733878450}
   iconPrefab: {fileID: 7264365873301768808, guid: a9d78d05086f64d4390710e9dd0299ce, type: 3}
   animalSpriteRenderer: {fileID: 8720486582933086131}
-  defaultSprite: {fileID: 1582487179, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  comboPoses:
-  - {fileID: 728281080, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 1487832113, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: -649861049, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 1543972852, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 661417260, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
   zoomCamera: {fileID: 7375175614107241737}
   spriteA: {fileID: -145980255, guid: 36deeae4fb212624fbaa93e6b33e629e, type: 3}
   spriteB: {fileID: -1404825131, guid: 36deeae4fb212624fbaa93e6b33e629e, type: 3}
