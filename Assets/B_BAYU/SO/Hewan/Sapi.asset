@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: -1107537219, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
   - {fileID: 1070123503, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
   comboLength: 5
-  baseDamage: 10
+  baseDamage: 200
   weight: 1

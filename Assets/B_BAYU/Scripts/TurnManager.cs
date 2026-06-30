@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager instance;
-
-    
     public enum TurnPhase { Player1, Player2, Airborne, Transition }
+
+    [Header("Pengaturan Kamera Dinamis")]
+    public CinemachineVirtualCamera mainVCam;
+    public GameObject worldVCam;
 
     [Header("Status Pemain saat ini")]
     public TurnPhase currentPhase = TurnPhase.Player1;
@@ -63,8 +66,13 @@ public class TurnManager : MonoBehaviour
     public void SetAirbornePhase()
     {
         nextPlayerPhase = (currentPhase == TurnPhase.Player1) ? TurnPhase.Player2 : TurnPhase.Player1;
-
         currentPhase = TurnPhase.Airborne;
+
+        if(mainVCam != null && currentActiveAnimal != null)
+        {
+            mainVCam.Follow = currentActiveAnimal.transform;
+        }
+
         Debug.Log("Proyektil Melayang! Kunci kontrol ketapel.");
     }
 
@@ -80,11 +88,25 @@ public class TurnManager : MonoBehaviour
     IEnumerator TransitionRoutine()
     {
         currentPhase = TurnPhase.Transition;
+
+        if(worldVCam != null)
+        {
+            worldVCam.SetActive(true);
+        }
+
         Debug.Log("Fase Transisi: Menunggu " + delayBetweenTurns + " detik untuk melihat kerusakan...");
 
         yield return new WaitForSeconds(delayBetweenTurns);
 
-        Destroy(currentActiveAnimal);
+        if(currentActiveAnimal != null)
+        {
+            Destroy(currentActiveAnimal);
+        }
+
+        if(worldVCam != null)
+        {
+            worldVCam.SetActive(false);
+        }
         currentPhase = nextPlayerPhase;
         Debug.Log("Giliran baru dimulai! Sekarang giliran: " + currentPhase.ToString());
 
@@ -100,6 +122,11 @@ public class TurnManager : MonoBehaviour
         {
             Debug.LogError("Kumpulan Hewan Belum diisi di Inspector");
             return;
+        }
+
+        if(mainVCam != null)
+        {
+            mainVCam.Follow = currentSlingshot;
         }
 
         int randomIndex = Random.Range(0, currentPool.Length);
