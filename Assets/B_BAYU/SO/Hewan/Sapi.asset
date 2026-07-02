@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Sapi
   m_EditorClassIdentifier: 
   animalName: Sapi
-  animalPrefab: {fileID: 3932498934637912001, guid: e48062c81d6dfdb48bee145bffa3ce73, type: 3}
-  defaultSprite: {fileID: -1787284335, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  animalPrefab: {fileID: 3932498934637912001, guid: dc4d981a26c892449aaac5c160a48f38, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 14313ce5dba807b4fb1e1cf4e28f0437, type: 3}
   comboPoses:
-  - {fileID: 728281080, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 1405867271, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 2124947997, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: -1107537219, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 1070123503, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  - {fileID: 21300000, guid: 14313ce5dba807b4fb1e1cf4e28f0437, type: 3}
+  - {fileID: 21300000, guid: 4ef62f142ca515e4bbbc39edf9ff7c1e, type: 3}
+  - {fileID: 21300000, guid: 8e0caff4eb5dc5543b5f70966fcb738e, type: 3}
+  - {fileID: 21300000, guid: 2f4d5ce7d11a67d4aa5d72fbd6dc2c53, type: 3}
+  - {fileID: 21300000, guid: 30b0c1b998fc274408e517f570a4613f, type: 3}
   comboLength: 5
-  baseDamage: 200
-  weight: 1
+  baseDamage: 35
+  weight: 2

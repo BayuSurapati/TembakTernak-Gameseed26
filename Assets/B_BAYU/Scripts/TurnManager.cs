@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager instance;
-    public enum TurnPhase { Player1, Player2, Airborne, Transition }
+    public enum TurnPhase { Player1, Player2, Airborne, Transition, GameOver }
 
     [Header("Pengaturan Kamera Dinamis")]
     public CinemachineVirtualCamera mainVCam;
@@ -142,6 +143,26 @@ public class TurnManager : MonoBehaviour
         {
             currentActiveAnimal.GetComponent<AirComboManager>().myAnimalData = selectedData;
         }
+
+        AirComboManager comboManager = currentActiveAnimal.GetComponent<AirComboManager>();
+        if (comboManager != null)
+        {
+            comboManager.myAnimalData = selectedData;
+
+            if(currentPhase == TurnPhase.Player2 && comboManager.animalSpriteRenderer != null)
+            {
+                comboManager.animalSpriteRenderer.flipX = true;
+            }else if (currentPhase == TurnPhase.Player1 && comboManager.animalSpriteRenderer != null)
+            {
+                comboManager.animalSpriteRenderer.flipX = false;
+            }
+        }
+
         Debug.Log("Hewan terpilih untuk giliran ini: " + selectedData.animalName);
+    }
+
+    public void SetGameOver()
+    {
+        currentPhase = TurnPhase.GameOver;
     }
 }

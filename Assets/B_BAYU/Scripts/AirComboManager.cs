@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 
 public class AirComboManager : MonoBehaviour
 {
-
     [HideInInspector]
     public AnimalData myAnimalData;
 
@@ -17,7 +15,6 @@ public class AirComboManager : MonoBehaviour
     public enum ComboButton { A, B, X, Y }
 
     [Header("UrutanCombo")]
-    //public int comboLength = 4;
     private ComboButton[] comboSequence;
 
     [Header("Pengaturan UI Combo")]
@@ -26,12 +23,10 @@ public class AirComboManager : MonoBehaviour
     public GameObject iconPrefab;
 
     [Header("Pengaturan Animasi Gaya Hewan")]
-    public SpriteRenderer animalSpriteRenderer; // Komponen visual hewan
-    //public Sprite defaultSprite;                // Gambar normal hewan saat ditarik/terbang biasa
-    //public Sprite[] comboPoses;                 // Daftar gambar pose lucu yang berurutan
+    public SpriteRenderer animalSpriteRenderer;
 
     [Header("Pengaturan Kamera")]
-    public GameObject zoomCamera; // Objek Cinemachine Virtual Camera untuk Zoom
+    public GameObject zoomCamera;
 
     [Header("Sprite Ikon Tombol Gamepad")]
     public Sprite spriteA, spriteB, spriteX, spriteY;
@@ -40,19 +35,25 @@ public class AirComboManager : MonoBehaviour
     private int maxComboScore;
     private int currentScore;
 
+    private float safeFlightTimer = 0f;
+
     private bool isQteActive = false;
     private float timer = 0f;
 
     private List<Image> spawnedIcons = new List<Image>();
 
-    // Start is called before the first frame update
     void Start()
     {
 
     }
-    // Update is called once per frame
+
     void Update()
     {
+        if (isQteActive)
+        {
+            safeFlightTimer += Time.unscaledDeltaTime;
+        }
+
         if (!isQteActive) return;
 
         timer -= Time.unscaledDeltaTime;
@@ -77,13 +78,13 @@ public class AirComboManager : MonoBehaviour
     {
         isQteActive = true;
         timer = qteDuration;
+        safeFlightTimer = 0f;
         currentComboIndex = 0;
 
         if (zoomCamera != null)
         {
             zoomCamera.SetActive(true);
         }
-
 
         int comboLength = myAnimalData.comboLength;
         comboSequence = new ComboButton[comboLength];
@@ -109,16 +110,26 @@ public class AirComboManager : MonoBehaviour
 
         Debug.Log("QTE Dimulai!");
     }
+
     private void CheckQTEInput()
     {
-        if (Gamepad.current == null) return;
+        // PENGAMAN: Pastikan InputHandler sudah ada di Scene
+        if (PlayerInputHandler.Instance == null) return;
 
-        bool pressA = Gamepad.current.buttonSouth.wasPressedThisFrame;
-        bool pressB = Gamepad.current.buttonEast.wasPressedThisFrame;
-        bool pressX = Gamepad.current.buttonWest.wasPressedThisFrame;
-        bool pressY = Gamepad.current.buttonNorth.wasPressedThisFrame;
+        // Mengecek apakah ada tombol QTE APA SAJA yang ditekan frame ini
+        if (!PlayerInputHandler.Instance.IsAnyQTEKeyPressed()) return;
 
-        if (!pressA && !pressB && !pressX && !pressY) return;
+        // --- LOGIKA BARU: Menerjemahkan Input dari PlayerInputHandler ---
+        // Asumsi tata letak tombol standar (Keyboard / Gamepad):
+        // Tombol A (Bawah) = S / Button South
+        // Tombol B (Kanan) = D / Button East
+        // Tombol X (Kiri)  = A / Button West
+        // Tombol Y (Atas)  = W / Button North
+
+        bool pressA = PlayerInputHandler.Instance.IsQTEDownPressed();
+        bool pressB = PlayerInputHandler.Instance.IsQTERightPressed();
+        bool pressX = PlayerInputHandler.Instance.IsQTELeftPressed();
+        bool pressY = PlayerInputHandler.Instance.IsQTEUpPressed();
 
         ComboButton expectedButton = comboSequence[currentComboIndex];
         bool isCorrect = false;
@@ -131,10 +142,9 @@ public class AirComboManager : MonoBehaviour
         if (isCorrect)
         {
             Debug.Log("BENAR! Lanjut ke tombol berikutnya.");
-            // Ubah warna ikon yang berhasil menjadi Hijau
             spawnedIcons[currentComboIndex].color = new Color(0.3f, 1f, 0.3f, 0.8f);
 
-            if(animalSpriteRenderer != null && currentComboIndex < myAnimalData.comboPoses.Length)
+            if (animalSpriteRenderer != null && currentComboIndex < myAnimalData.comboPoses.Length)
             {
                 if (myAnimalData.comboPoses[currentComboIndex] != null)
                 {
@@ -146,14 +156,10 @@ public class AirComboManager : MonoBehaviour
         {
             Debug.Log("SALAH TEKAN! Hangus, lanjut ke tombol berikutnya.");
             if (currentScore > 0) currentScore--;
-            // Ubah warna ikon yang gagal menjadi Merah
             spawnedIcons[currentComboIndex].color = new Color(1f, 0.3f, 0.3f, 0.8f);
         }
 
-        // KUNCI PERUBAHAN: Index SELALU bertambah, baik saat benar maupun salah
         currentComboIndex++;
-
-        // Perbarui highlight (pembesaran ukuran) untuk tombol target selanjutnya
         UpdateUIHighlight();
     }
 
@@ -168,39 +174,38 @@ public class AirComboManager : MonoBehaviour
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
 
-        qteCanvas.gameObject.SetActive(false);
+        if (qteCanvas != null)
+        {
+            qteCanvas.gameObject.SetActive(false);
+        }
 
         if (zoomCamera != null)
         {
             zoomCamera.SetActive(false);
         }
-        if(qteCanvas != null)
-        {
-            qteCanvas.gameObject.SetActive(false);
-        }
 
         Debug.Log("QTE Selesai, Skor: " + currentScore);
 
-        TurnManager.instance.FinishActionAndSwitchTurn();
+        if (TurnManager.instance != null)
+        {
+            TurnManager.instance.FinishActionAndSwitchTurn();
+        }
     }
-
-
-    //LOGIKA & PEMBUATAN UI
 
     private void GenerateUI()
     {
-        foreach(Image icon in spawnedIcons)
+        foreach (Image icon in spawnedIcons)
         {
             Destroy(icon.gameObject);
         }
         spawnedIcons.Clear();
 
-        foreach(ComboButton btn in comboSequence)
+        foreach (ComboButton btn in comboSequence)
         {
             GameObject newIcon = Instantiate(iconPrefab, uiContainer);
             Image img = newIcon.GetComponent<Image>();
 
-            switch(btn)
+            switch (btn)
             {
                 case ComboButton.A: img.sprite = spriteA; break;
                 case ComboButton.B: img.sprite = spriteB; break;
@@ -217,46 +222,59 @@ public class AirComboManager : MonoBehaviour
         {
             Image img = spawnedIcons[i];
 
-            // Status 1: Tombol TARGET SAAT INI (Di-highlight / dibesarkan)
             if (i == currentComboIndex)
             {
                 img.color = Color.white;
                 img.transform.localScale = Vector3.one * 1.3f;
             }
-            // Status 2: Tombol BERIKUTNYA (Belum gilirannya)
             else if (i > currentComboIndex)
             {
                 img.color = new Color(1f, 1f, 1f, 0.7f);
                 img.transform.localScale = Vector3.one;
             }
-            // Status 3: Tombol yang SUDAH DITEKAN (Ukurannya dikecilkan kembali)
-            // (Warnanya tidak perlu diubah lagi karena sudah diatur jadi hijau/merah di CheckQTEInput)
             else
             {
                 img.transform.localScale = Vector3.one * 0.8f;
             }
         }
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isQteActive && safeFlightTimer < 0.2f)
+        {
+            return;
+        }
+
         TowerHealth targetTower = collision.gameObject.GetComponent<TowerHealth>();
 
         if (targetTower != null)
         {
+            if (TurnManager.instance != null && targetTower.towerOwner == TurnManager.instance.currentPhase)
+            {
+                Debug.Log("Ups! Terkena markas sendiri. Diabaikan!");
+                return;
+            }
+
             float comboMultiplier = 1f + (currentScore * 0.5f);
-            float finalDamage = myAnimalData.baseDamage + comboMultiplier;
+
+            // PERBAIKAN: Mengganti (+) menjadi (*) agar multiplier berfungsi dengan benar
+            float finalDamage = myAnimalData.baseDamage * comboMultiplier;
 
             Debug.Log("BAM! " + myAnimalData.animalName + " menabrak Tower!");
             Debug.Log("Base Damage: " + myAnimalData.baseDamage + " | Multiplier: x" + comboMultiplier + " | Final Damage: " + finalDamage);
 
             targetTower.TakeDamage(finalDamage);
         }
+        else
+        {
+            Debug.Log("Meleset! Hewan hanya menabrak tanah/rintangan.");
+        }
 
-        // Jika hewan menabrak objek apa pun (tanah, tower, hewan lain) saat QTE masih berjalan
         if (isQteActive)
         {
             Debug.Log("Hewan mendarat! Waktu lambat otomatis dihentikan.");
-            EndQTE(); // Panggil fungsi ini untuk mengembalikan waktu menjadi normal seketika
+            EndQTE();
         }
     }
 }
