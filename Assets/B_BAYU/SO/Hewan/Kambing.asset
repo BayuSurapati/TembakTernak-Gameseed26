@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b572d912dcd8ec49a432d9f4f342284, type: 3}
+  m_Name: Kambing
+  m_EditorClassIdentifier: 
+  animalName: Kambing
+  animalPrefab: {fileID: 3932498934637912001, guid: 0b1b31ad8c3f3fc42be711579574ddf4, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 9c4453d521086a3459266b98736d1fc0, type: 3}
+  comboPoses:
+  - {fileID: 21300000, guid: 849eec206a7f67645b391f69ce87097b, type: 3}
+  - {fileID: 21300000, guid: 9f95bd43aa8143745ba2cedf5be5fe7d, type: 3}
+  - {fileID: 21300000, guid: 9c4453d521086a3459266b98736d1fc0, type: 3}
+  - {fileID: 21300000, guid: c4be52a175c100e4bbae71d548c5c282, type: 3}
+  comboLength: 4
+  baseDamage: 20
+  weight: 1.3

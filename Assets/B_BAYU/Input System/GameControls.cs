@@ -28,7 +28,16 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             ""id"": ""832f2b40-2492-4bde-8ac7-5044f1dedd01"",
             ""actions"": [
                 {
-                    ""name"": ""Aim"",
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""801b96ed-b1ed-4d81-9a45-9f2bb2520d73"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GamepadAim"",
                     ""type"": ""Value"",
                     ""id"": ""f1024515-6437-4667-9751-4de1b29cb210"",
                     ""expectedControlType"": ""Vector2"",
@@ -44,6 +53,51 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e272f49-b98b-48f3-8c9f-e101e77e6213"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTE_Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""eecd445f-7828-4480-9a35-da75f30f72d2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTE_Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""eab576fc-03b6-49ab-9175-565e8b8a0b6d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTE_Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""b451bdaf-ea01-41ab-a525-aa8bc318721c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTE_Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""bee6d8b0-4618-4811-bf0c-b35eeae222ca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -54,7 +108,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aim"",
+                    ""action"": ""GamepadAim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -68,6 +122,127 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""action"": ""Pull"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e85b2ab5-4782-45e7-8b84-118af9ff7eb6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4455d0dd-fc66-4daa-9770-51a990d47076"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8f974dd-4ddd-4034-b12a-71658532252f"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91272533-5dba-4830-87fb-e41928b13121"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93fd700e-8aa3-4c45-8564-bdf66d858112"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54080d13-1587-4d37-8d2f-6cd87a837519"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65376161-6743-46b7-aa3d-51e21ec0c5ef"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dcf7eec-00d3-4904-a087-9ce70d783b6f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f541f15-2be1-4eed-8673-1a505fdc1d02"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b01c8fa-24d7-4f37-8514-4c5ff324560b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f146c49a-a290-4906-aa5b-510d75b022cb"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTE_Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -76,8 +251,14 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
 }");
         // PlayerControls
         m_PlayerControls = asset.FindActionMap("PlayerControls", throwIfNotFound: true);
-        m_PlayerControls_Aim = m_PlayerControls.FindAction("Aim", throwIfNotFound: true);
+        m_PlayerControls_MouseAim = m_PlayerControls.FindAction("MouseAim", throwIfNotFound: true);
+        m_PlayerControls_GamepadAim = m_PlayerControls.FindAction("GamepadAim", throwIfNotFound: true);
         m_PlayerControls_Pull = m_PlayerControls.FindAction("Pull", throwIfNotFound: true);
+        m_PlayerControls_Back = m_PlayerControls.FindAction("Back", throwIfNotFound: true);
+        m_PlayerControls_QTE_Up = m_PlayerControls.FindAction("QTE_Up", throwIfNotFound: true);
+        m_PlayerControls_QTE_Down = m_PlayerControls.FindAction("QTE_Down", throwIfNotFound: true);
+        m_PlayerControls_QTE_Left = m_PlayerControls.FindAction("QTE_Left", throwIfNotFound: true);
+        m_PlayerControls_QTE_Right = m_PlayerControls.FindAction("QTE_Right", throwIfNotFound: true);
     }
 
     ~@GameControls()
@@ -144,14 +325,26 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     // PlayerControls
     private readonly InputActionMap m_PlayerControls;
     private List<IPlayerControlsActions> m_PlayerControlsActionsCallbackInterfaces = new List<IPlayerControlsActions>();
-    private readonly InputAction m_PlayerControls_Aim;
+    private readonly InputAction m_PlayerControls_MouseAim;
+    private readonly InputAction m_PlayerControls_GamepadAim;
     private readonly InputAction m_PlayerControls_Pull;
+    private readonly InputAction m_PlayerControls_Back;
+    private readonly InputAction m_PlayerControls_QTE_Up;
+    private readonly InputAction m_PlayerControls_QTE_Down;
+    private readonly InputAction m_PlayerControls_QTE_Left;
+    private readonly InputAction m_PlayerControls_QTE_Right;
     public struct PlayerControlsActions
     {
         private @GameControls m_Wrapper;
         public PlayerControlsActions(@GameControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Aim => m_Wrapper.m_PlayerControls_Aim;
+        public InputAction @MouseAim => m_Wrapper.m_PlayerControls_MouseAim;
+        public InputAction @GamepadAim => m_Wrapper.m_PlayerControls_GamepadAim;
         public InputAction @Pull => m_Wrapper.m_PlayerControls_Pull;
+        public InputAction @Back => m_Wrapper.m_PlayerControls_Back;
+        public InputAction @QTE_Up => m_Wrapper.m_PlayerControls_QTE_Up;
+        public InputAction @QTE_Down => m_Wrapper.m_PlayerControls_QTE_Down;
+        public InputAction @QTE_Left => m_Wrapper.m_PlayerControls_QTE_Left;
+        public InputAction @QTE_Right => m_Wrapper.m_PlayerControls_QTE_Right;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -161,22 +354,58 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerControlsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerControlsActionsCallbackInterfaces.Add(instance);
-            @Aim.started += instance.OnAim;
-            @Aim.performed += instance.OnAim;
-            @Aim.canceled += instance.OnAim;
+            @MouseAim.started += instance.OnMouseAim;
+            @MouseAim.performed += instance.OnMouseAim;
+            @MouseAim.canceled += instance.OnMouseAim;
+            @GamepadAim.started += instance.OnGamepadAim;
+            @GamepadAim.performed += instance.OnGamepadAim;
+            @GamepadAim.canceled += instance.OnGamepadAim;
             @Pull.started += instance.OnPull;
             @Pull.performed += instance.OnPull;
             @Pull.canceled += instance.OnPull;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
+            @QTE_Up.started += instance.OnQTE_Up;
+            @QTE_Up.performed += instance.OnQTE_Up;
+            @QTE_Up.canceled += instance.OnQTE_Up;
+            @QTE_Down.started += instance.OnQTE_Down;
+            @QTE_Down.performed += instance.OnQTE_Down;
+            @QTE_Down.canceled += instance.OnQTE_Down;
+            @QTE_Left.started += instance.OnQTE_Left;
+            @QTE_Left.performed += instance.OnQTE_Left;
+            @QTE_Left.canceled += instance.OnQTE_Left;
+            @QTE_Right.started += instance.OnQTE_Right;
+            @QTE_Right.performed += instance.OnQTE_Right;
+            @QTE_Right.canceled += instance.OnQTE_Right;
         }
 
         private void UnregisterCallbacks(IPlayerControlsActions instance)
         {
-            @Aim.started -= instance.OnAim;
-            @Aim.performed -= instance.OnAim;
-            @Aim.canceled -= instance.OnAim;
+            @MouseAim.started -= instance.OnMouseAim;
+            @MouseAim.performed -= instance.OnMouseAim;
+            @MouseAim.canceled -= instance.OnMouseAim;
+            @GamepadAim.started -= instance.OnGamepadAim;
+            @GamepadAim.performed -= instance.OnGamepadAim;
+            @GamepadAim.canceled -= instance.OnGamepadAim;
             @Pull.started -= instance.OnPull;
             @Pull.performed -= instance.OnPull;
             @Pull.canceled -= instance.OnPull;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
+            @QTE_Up.started -= instance.OnQTE_Up;
+            @QTE_Up.performed -= instance.OnQTE_Up;
+            @QTE_Up.canceled -= instance.OnQTE_Up;
+            @QTE_Down.started -= instance.OnQTE_Down;
+            @QTE_Down.performed -= instance.OnQTE_Down;
+            @QTE_Down.canceled -= instance.OnQTE_Down;
+            @QTE_Left.started -= instance.OnQTE_Left;
+            @QTE_Left.performed -= instance.OnQTE_Left;
+            @QTE_Left.canceled -= instance.OnQTE_Left;
+            @QTE_Right.started -= instance.OnQTE_Right;
+            @QTE_Right.performed -= instance.OnQTE_Right;
+            @QTE_Right.canceled -= instance.OnQTE_Right;
         }
 
         public void RemoveCallbacks(IPlayerControlsActions instance)
@@ -196,7 +425,13 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
     public interface IPlayerControlsActions
     {
-        void OnAim(InputAction.CallbackContext context);
+        void OnMouseAim(InputAction.CallbackContext context);
+        void OnGamepadAim(InputAction.CallbackContext context);
         void OnPull(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnQTE_Up(InputAction.CallbackContext context);
+        void OnQTE_Down(InputAction.CallbackContext context);
+        void OnQTE_Left(InputAction.CallbackContext context);
+        void OnQTE_Right(InputAction.CallbackContext context);
     }
 }

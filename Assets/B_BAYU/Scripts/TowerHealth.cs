@@ -90,5 +90,10 @@ public class TowerHealth : MonoBehaviour
     private void DestroyTower()
     {
         Debug.Log("MARKAS " + towerOwner.ToString() + " HANCUR! PERMAINAN SELESAI!");
+
+        if(GameOverManager.Instance != null)
+        {
+            GameOverManager.Instance.TriggerGameOver(towerOwner);
+        }
     }
 }

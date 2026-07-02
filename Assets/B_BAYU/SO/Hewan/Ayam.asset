@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Ayam
   m_EditorClassIdentifier: 
   animalName: Ayam
-  animalPrefab: {fileID: 1887475904369390926, guid: 24ae83023cc1be7449f4a4d526c6bcc0, type: 3}
-  defaultSprite: {fileID: 896976006, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
+  animalPrefab: {fileID: 1887475904369390926, guid: d154d6e875135484c8441bcd164d618a, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 4ae15a0d02354624d9fe6294d99ce0c8, type: 3}
   comboPoses:
-  - {fileID: 896976006, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: -2066918477, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: 896700421, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  - {fileID: -1496791724, guid: 78eb3c305f8b86e4caeb79dc59af218e, type: 3}
-  comboLength: 4
+  - {fileID: 21300000, guid: 4ae15a0d02354624d9fe6294d99ce0c8, type: 3}
+  - {fileID: 21300000, guid: 02d6332eaf1d0d242822bfe01773169d, type: 3}
+  - {fileID: 21300000, guid: 0b57da31f1ef990459674257e5ab636f, type: 3}
+  comboLength: 3
   baseDamage: 10
-  weight: 1
+  weight: 0.8

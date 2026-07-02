@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+// using UnityEngine.InputSystem; -> DIHAPUS karena sudah diurus oleh PlayerInputHandler!
 
 public class GamepadSlingshot : MonoBehaviour
 {
+    [Header("Pengaturan Visual Meriam")]
+    public Sprite readySprite;
+    public Sprite shootSprite;
+
+    private SpriteRenderer cannonRenderer;
+    private Sprite idleSprite;
+    private Quaternion originalCannonRotation;
+
     [Header("Referensi Objek")]
     public Rigidbody2D animalRB;
     public Transform slingshotCenter;
@@ -16,85 +24,151 @@ public class GamepadSlingshot : MonoBehaviour
     [Header("Identitas Pemain")]
     public TurnManager.TurnPhase ownerPhase;
 
-    private GameControls controls;
-    private Vector2 aimInput;
     private bool isPulling = false;
     private Vector2 startPoint;
-    private void Awake()
-    {
-        controls = new GameControls();
 
-        controls.PlayerControls.Pull.started += ctx => StartPulling();
-        controls.PlayerControls.Pull.canceled += ctx => ShootProjectile();
-
-        controls.PlayerControls.Aim.performed += ctx => aimInput = ctx.ReadValue<Vector2>();
-        controls.PlayerControls.Aim.canceled += ctx => aimInput = Vector2.zero;
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         startPoint = slingshotCenter.position;
         animalRB.isKinematic = true;
 
+        if (slingshotCenter != null)
+        {
+            cannonRenderer = slingshotCenter.GetComponent<SpriteRenderer>();
+
+            if (cannonRenderer != null)
+            {
+                idleSprite = cannonRenderer.sprite;
+                originalCannonRotation = cannonRenderer.transform.rotation;
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(TurnManager.instance.currentPhase != ownerPhase)
+        // 1. PENGAMAN: Jika bukan giliran pemain ini, jangan lakukan apa-apa
+        // (Catatan: Pastikan di TurnManager kamu menggunakan huruf I besar pada 'Instance')
+        if (TurnManager.instance == null || TurnManager.instance.currentPhase != ownerPhase)
         {
             return;
         }
-        if (isPulling)
+
+        // 2. Beritahu InputHandler posisi titik meriam kita saat ini agar kalkulasi Mouse akurat
+        if (PlayerInputHandler.Instance != null && slingshotCenter != null)
+        {
+            PlayerInputHandler.Instance.currentSlingshotCenter = this.slingshotCenter;
+        }
+
+        // 3. Ambil status input dari Sang Penerjemah
+        bool inputIsHolding = PlayerInputHandler.Instance.isHoldingAim;
+
+        // Fase Mulai Ditarik (Klik/Trigger ditekan pertama kali)
+        if (inputIsHolding && !isPulling)
+        {
+            StartPulling();
+        }
+
+        // Fase Sedang Ditarik (Klik/Trigger ditahan)
+        if (inputIsHolding && isPulling)
         {
             ProcessAiming();
         }
-    }
 
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
+        // Fase Dilepas / Menembak (Klik/Trigger dilepas)
+        if (!inputIsHolding && isPulling)
+        {
+            ShootProjectile();
+        }
     }
 
     private void StartPulling()
     {
-        if(TurnManager.instance.currentPhase == ownerPhase )
-        {
-            isPulling = true;
-            animalRB.isKinematic = true;
-            animalRB.velocity = Vector2.zero;
-        }
+        isPulling = true;
+        animalRB.isKinematic = true;
+        animalRB.velocity = Vector2.zero;
     }
 
     private void ProcessAiming()
     {
-        Vector2 pullVector = aimInput * maxDragDistance;
+        // Kunci posisi hewan agar tetap di dalam laras meriam
+        transform.position = slingshotCenter.position;
 
-        animalRB.position = startPoint + pullVector;
+        // Ganti visual meriam bersiap
+        if (cannonRenderer != null && readySprite != null)
+        {
+            cannonRenderer.sprite = readySprite;
+        }
+
+        // Mengambil arah tarikan dari InputHandler
+        Vector2 pullDir = PlayerInputHandler.Instance.aimDirection;
+
+        // Memutar arah laras meriam (arah kebalikan dari tarikan)
+        Vector2 cannonAimDir = -pullDir;
+
+        if (cannonAimDir.sqrMagnitude > 0.1f)
+        {
+            float angle = Mathf.Atan2(cannonAimDir.y, cannonAimDir.x) * Mathf.Rad2Deg;
+
+            // Logika pembatasan rotasi meriam (Kiri dan Kanan)
+            if (slingshotCenter.position.x < 0)
+            {
+                angle = Mathf.Clamp(angle, -15f, 85f);
+            }
+            else
+            {
+                if (angle < 0) angle += 360f;
+                angle = Mathf.Clamp(angle, 95f, 195f);
+            }
+            cannonRenderer.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+    }
+
+    private IEnumerator ResetCannonVisual()
+    {
+        yield return new WaitForSeconds(0.5f); // Tahan gambar meledak selama 0.5 detik
+
+        if (cannonRenderer != null && idleSprite != null)
+        {
+            cannonRenderer.sprite = idleSprite; // Kembalikan ke gambar normal
+            cannonRenderer.transform.rotation = originalCannonRotation; // Luruskan meriam
+        }
     }
 
     private void ShootProjectile()
     {
-        if(!isPulling || TurnManager.instance.currentPhase != ownerPhase)
+        isPulling = false;
+        animalRB.isKinematic = false;
+
+        // --- KALKULASI TEMBAKAN ---
+        // Ambil seberapa jauh pemain menarik mouse/analog
+        Vector2 pullVector = PlayerInputHandler.Instance.aimDirection;
+
+        // Batasi maksimal kekuatan (max drag)
+        if (pullVector.magnitude > maxDragDistance)
         {
-            return;
+            pullVector = pullVector.normalized * maxDragDistance;
         }
 
-        isPulling = false;
-        animalRB.isKinematic= false;
+        // Tembakan adalah kebalikan dari arah tarik (pullVector)
+        Vector2 shootDirection = -pullVector.normalized;
+        float shootDistance = pullVector.magnitude;
 
-        Vector2 releasePoint = animalRB.position;
-        Vector2 shootDirection = (startPoint - releasePoint).normalized;
-        float shootDistance = Vector2.Distance(startPoint, releasePoint);
-
+        // Tembak!
         animalRB.AddForce(shootDirection * shootDistance * powerMultiplier, ForceMode2D.Impulse);
-        GetComponent<AirComboManager>().StartQTE();
+
+        // Efek Ledakan Meriam
+        if (cannonRenderer != null && shootSprite != null)
+        {
+            cannonRenderer.sprite = shootSprite;
+            StartCoroutine(ResetCannonVisual());
+        }
+
+        // Mulai QTE dan Pindah Fase ke Udara
+        if (GetComponent<AirComboManager>() != null)
+        {
+            GetComponent<AirComboManager>().StartQTE();
+        }
+
         TurnManager.instance.SetAirbornePhase();
     }
 }
